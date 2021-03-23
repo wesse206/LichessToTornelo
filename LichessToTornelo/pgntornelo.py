@@ -9,10 +9,22 @@ def convertpgn(tournfile, outfile=None):
     
     with open('tournament.pgn', 'r+') as c:
         linec = c.readlines()
+        prevline = 0
+        gamesperround = 1
+        roundtotal = 0
         for i, line in enumerate(linec):
-            if line.startswith('[Event '):
+            if line.startswith('[UTCTime'):
                 count += 1
-    count /= 5
+                if prevline == line:
+                    gamesperround += 1
+                else:
+                    gamesperround = 1
+                    roundtotal += 1
+                prevline = line
+    
+        print(roundtotal)
+        count /= 5
+        print(count)
     # Count the players to know how much profiles to edit
     # TODO enhance the counter by matching the UTC times. 
 
@@ -32,15 +44,25 @@ def convertpgn(tournfile, outfile=None):
             f.write(line)
     # Adds the rounds per total games per round
 
-'''
+
     with open('tournament.pgn', 'r+') as w:
         linew = w.readlines()
         for i, line in enumerate(linew):
-            if line.startswith('[White ') or line.startswith('[Black '):
-                w.seek(8)
-                w.write('L, ')
-# Trying to add a firstname of each player, but still failing 
-'''
+            if line.startswith('[White '):
+                linelen = 8-len(line) 
+                lines[i] = line[:8] + 'L, ' + line[linelen:]
+        w.seek(0)
+        for line in lines:
+            w.write(line)
+        for i, line in enumerate(linew):
+            if line.startswith('[Black '):
+                linelen = 8-len(line)
+                lines[i] = line[:8] + 'L, ' + line[linelen:]
+        w.seek(0)
+        for line in lines:
+            w.write(line)
+# Adds a 'L, ' in front of every player, so that Tornelo can accept the pgn
+
 
 def worker(sendtodwnld=None, outdir=None):
     downloadpgn(sendtodwnld)
