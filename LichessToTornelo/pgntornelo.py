@@ -1,4 +1,7 @@
 import requests
+import shutil, os
+from pathlib import Path
+
 def downloadpgn(tournlink):
     tournfiler = requests.get('https://lichess.org/api/swiss/'+tournlink+'/games', allow_redirects=True)
     open('tournament.pgn', 'wb').write(tournfiler.content)
@@ -23,10 +26,7 @@ def convertpgn(tournfile, outfile=None):
                     roundtotal += 1
                     lines[i] = lines[i].strip() + ' [Round "%s"]\n' % str(roundtotal)
                 prevline = line
-    
-        print(roundtotal)
         count /= roundtotal
-        print(count)
     # Adds the rounds to the file per time
 
 
@@ -46,6 +46,9 @@ def convertpgn(tournfile, outfile=None):
         w.seek(0)
         for line in lines:
             w.write(line)
+    home = str(Path.home())
+    shutil.copyfile('./tournament.pgn', home+'\\Documents\\tournament.pgn')
+    os.remove('tournament.pgn')
 # Adds a 'L, ' in front of every player, so that Tornelo can accept the pgn
 
 def worker(sendtodwnld=None, outdir=None):

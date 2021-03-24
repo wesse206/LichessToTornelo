@@ -1,5 +1,4 @@
 #! ./env/Scripts/pythonw
-
 from tkinter import *
 import pgntornelo
 
