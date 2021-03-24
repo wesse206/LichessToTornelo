@@ -1,6 +1,7 @@
 import requests
 import shutil, os
 from pathlib import Path
+from tkinter import messagebox
 
 def downloadpgn(tournlink):
     tournfiler = requests.get('https://lichess.org/api/swiss/'+tournlink+'/games', allow_redirects=True)
@@ -46,12 +47,15 @@ def convertpgn(tournfile, outfile=None):
         w.seek(0)
         for line in lines:
             w.write(line)
+# Adds a 'L, ' in front of every player, so that Tornelo can accept the pgn    
+            
     home = str(Path.home())
-    shutil.copyfile('./tournament.pgn', home+'\\Documents\\tournament.pgn')
+    shutil.copyfile('./tournament.pgn', outfile + '\\tournament.pgn')
     os.remove('tournament.pgn')
-# Adds a 'L, ' in front of every player, so that Tornelo can accept the pgn
+
+    messagebox.showinfo(title='PGN Conversion completed', message='The PGN was converted succesfully and ready to upload to Tornelo')
 
 def worker(sendtodwnld=None, outdir=None):
     downloadpgn(sendtodwnld)
-    convertpgn('tournament.pgn')
+    convertpgn('tournament.pgn', outdir)
 # Function to lead the program to download the files. Accessed by the main file.
