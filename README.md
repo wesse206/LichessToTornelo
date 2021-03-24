@@ -1,3 +1,2 @@
-# LichessToTornelo
-This Python program prepares a Lichess PGN for upload to Tornelo.
-This program is still a pre-release.
+# LichessToTornelo Installable
+This is the branch that is used for installations. The installer is availible at packages
