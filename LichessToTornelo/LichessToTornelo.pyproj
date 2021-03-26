@@ -12,7 +12,7 @@
     <OutputPath>.</OutputPath>
     <Name>LichessToTornelo</Name>
     <RootNamespace>LichessToTornelo</RootNamespace>
-    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>Global|PythonCore|3.9</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>

@@ -8,7 +8,7 @@ def downloadpgn(tournlink):
     open('tournament.pgn', 'wb').write(tournfiler.content)
 # Function to download the tournament file. The tournlink param gets feeded from the worker function.
 
-def convertpgn(tournfile, outfile=None):
+def convertpgn(tournfile, outdir, outfile):
     count = 0
     
     with open('tournament.pgn', 'r+') as c:
@@ -50,12 +50,12 @@ def convertpgn(tournfile, outfile=None):
 # Adds a 'L, ' in front of every player, so that Tornelo can accept the pgn    
             
     home = str(Path.home())
-    shutil.copyfile('./tournament.pgn', outfile + '\\tournament.pgn')
+    shutil.copyfile('./tournament.pgn', outdir + '\\%s.pgn' % outfile)
     os.remove('tournament.pgn')
 
     messagebox.showinfo(title='PGN Conversion completed', message='The PGN was converted succesfully and ready to upload to Tornelo')
 
-def worker(sendtodwnld=None, outdir=None):
+def worker(sendtodwnld, outdir, outfile):
     downloadpgn(sendtodwnld)
-    convertpgn('tournament.pgn', outdir)
+    convertpgn('tournament.pgn', outdir, outfile)
 # Function to lead the program to download the files. Accessed by the main file.
