@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "LichessToTornelo", "LichessToTornelo\LichessToTornelo.pyproj", "{CA350FF7-C154-4531-961E-77ACE41071EC}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "LichessToTornelo Setup", "LichessToTornelo Setup\LichessToTornelo Setup.vdproj", "{C4B614D7-30FE-4B5E-B0D8-4E60DC8F65EC}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "LichessToTornelo Setup", "LichessToTornelo Setup\LichessToTornelo Setup.vdproj", "{C51BD3F8-EA35-48C4-B69D-3B97EB72B367}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +15,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{CA350FF7-C154-4531-961E-77ACE41071EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CA350FF7-C154-4531-961E-77ACE41071EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C4B614D7-30FE-4B5E-B0D8-4E60DC8F65EC}.Debug|Any CPU.ActiveCfg = Debug
-		{C4B614D7-30FE-4B5E-B0D8-4E60DC8F65EC}.Release|Any CPU.ActiveCfg = Release
+		{C51BD3F8-EA35-48C4-B69D-3B97EB72B367}.Debug|Any CPU.ActiveCfg = Debug
+		{C51BD3F8-EA35-48C4-B69D-3B97EB72B367}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
