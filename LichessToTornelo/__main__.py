@@ -1,4 +1,3 @@
-#! ./env/Scripts/pythonw
 from tkinter import *
 from tkinter.filedialog import askdirectory
 import pgntornelo

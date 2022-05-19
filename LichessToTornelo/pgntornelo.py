@@ -21,11 +21,11 @@ def convertpgn(tournfile, outdir, outfile):
                 count += 1
                 if prevline == line:
                     gamesperround += 1
-                    lines[i] = lines[i].strip() + ' [Round "%s"]\n' % str(roundtotal)
+                    lines[i] = lines[i].strip() + ' [Round "%s.%s"]\n' % (str(roundtotal), gamesperround)
                 else:
                     gamesperround = 1
                     roundtotal += 1
-                    lines[i] = lines[i].strip() + ' [Round "%s"]\n' % str(roundtotal)
+                    lines[i] = lines[i].strip() + ' [Round "%s.%s"]\n' % (str(roundtotal), gamesperround)
                 prevline = line
         count /= roundtotal
     # Adds the rounds to the file per time
